@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,13 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     </head>
+
     <body>
+    @if(session('success'))
+    <div class="alert alert-success mx-auto text-center" style="width: 50%;">
+        {{ session('success') }}
+    </div>
+    @endif
          <div id="app" class="position-relative min-vh-100" style="padding-bottom: 30px;">
              @component('components.header')
              @endcomponent 
@@ -31,4 +38,5 @@
 
          <link href="{{ asset('css/eating-log.css') }}" rel="stylesheet">
      </body>
+
 </html>

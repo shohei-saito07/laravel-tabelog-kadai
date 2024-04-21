@@ -86,6 +86,8 @@ class StoreController extends Controller
         }
 
         $store->recommendation_flg = $request->has('recommendation_flg') ? 1 : 0;
+
+        session()->flash('success', '店舗を作成しました。');
         $store->save();
 
         return to_route('stores.index');
@@ -144,6 +146,8 @@ class StoreController extends Controller
         $store->category_id = $request->input('category_id');
         $store->update();
 
+        session()->flash('success', '店舗を更新しました。');
+
         return to_route('stores.index');
     }
 
@@ -157,6 +161,9 @@ class StoreController extends Controller
     {
         // 店舗情報を削除
         $store->delete();
+
+        // フラッシュメッセージを設定
+        session()->flash('success', '店舗「' . $store->name . '」が削除しました。');
 
         return to_route('stores.index');
     }
