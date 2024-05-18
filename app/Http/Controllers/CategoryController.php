@@ -62,7 +62,7 @@ class CategoryController extends Controller
         $store->save();
 
         // フラッシュメッセージを設定
-        session()->flash('success', 'カテゴリを作成されしました。');
+        session()->flash('success', 'カテゴリを作成しました。');
 
         // カテゴリ作成画面へ遷移する
         return to_route('stores.index');
